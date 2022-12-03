@@ -1,4 +1,4 @@
-// 모듈 불러오기
+// 모듈 불러
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
