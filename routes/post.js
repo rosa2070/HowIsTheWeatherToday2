@@ -3,7 +3,6 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-//const { Post, Hashtag, User } = require('../models');
 const { Post, Hashtag, User, Comment } = require('../models');
 const { isLoggedIn } = require('./middlewares');
 
