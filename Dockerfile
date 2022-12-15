@@ -1,9 +1,8 @@
 FROM bitnami/node:9 as builder
 ENV NODE_ENV="production"
-USER root
 
 # Copy app's source code to the /app directory
-COPY --chown=root:root . /app
+COPY . /app
 
 # The application's directory will be the working directory
 WORKDIR /app
