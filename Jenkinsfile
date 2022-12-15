@@ -15,7 +15,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("rosa2070/hello:${env.BUILD_ID}")
+                    myapp = docker.build("pjbear/hello:${env.BUILD_ID}")
                 }
             }
         }
@@ -28,17 +28,15 @@ pipeline {
                     }
                 }
             }
-        }
+        }        
         stage('Deploy to GKE') {
-            when {
-                branch 'main'
-            }
+			when {
+				branch 'main'
+			}
             steps{
                 sh "sed -i 's/hello:latest/hello:${env.BUILD_ID}/g' deployment.yaml"
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME,
-location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID,
-verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
-    }
+    }    
 }
