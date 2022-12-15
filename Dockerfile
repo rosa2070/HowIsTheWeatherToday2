@@ -1,4 +1,5 @@
-FROM bitnami/node:9 as builder
+FROM ubuntu:20.04
+RUN apt-get update && apt-get -y install build-essential && mkdir –p /app
 ENV NODE_ENV="production"
 
 # Copy app's source code to the /app directory
