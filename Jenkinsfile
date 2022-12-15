@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent any
     environment {
         PROJECT_ID = 'oss2022fall-362912'
