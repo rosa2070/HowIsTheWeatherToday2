@@ -39,4 +39,3 @@ spec:
     app: hello
     tier: hello
   type: LoadBalancer
-                          
