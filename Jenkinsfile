@@ -15,7 +15,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("rosa2070/hello:${env.BUILD_ID}")
+                    myapp = docker.build("rosa2070/prbasedtest:${env.BUILD_ID}")
                 }
             }
         }
