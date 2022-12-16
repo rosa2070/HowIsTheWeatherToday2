@@ -22,7 +22,7 @@ spec:
         image: rosa2070/hello:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
           name: hello
 ---
 apiVersion: v1
@@ -34,7 +34,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 5000
   selector:
     app: hello
     tier: hello
